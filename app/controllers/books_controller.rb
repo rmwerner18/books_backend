@@ -8,6 +8,13 @@ class BooksController < ApplicationController
         render json: book
     end
 
+    def update
+        book = Book.find(params[:id])
+        book.update(book_params)
+        book.save
+        render json: book
+    end
+
     def destroy
         deleted = Book.find(params[:id])
         deleted.delete
